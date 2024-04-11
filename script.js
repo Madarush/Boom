@@ -1,32 +1,16 @@
-document.getElementById('searchForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    let searchTerm = document.getElementById('searchInput').value;
-    searchGoogle(searchTerm);
-});
+import java.io.IOException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-function searchGoogle(searchTerm) {
-    const apiKey = 'YOUR_API_KEY';
-    const cseId = 'YOUR_CSE_ID';
-    const url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cseId}&q=${encodeURIComponent(searchTerm)}`;
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            displaySearchResults(data.items);
-        })
-        .catch(error => console.error('Error searching Google:', error));
-}
-
-function displaySearchResults(results) {
-    const resultsList = document.getElementById('resultsList');
-    resultsList.innerHTML = '';
-
-    results.forEach(item => {
-        const li = document.createElement('li');
-        const link = document.createElement('a');
-        link.href = item.link;
-        link.textContent = item.title;
-        li.appendChild(link);
-        resultsList.appendChild(li);
-    });
+public class SearchServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // Handle search query and fetch search results from Google Custom Search Engine API
+        String searchTerm = request.getParameter("q");
+        // Fetch search results...
+        
+        // Send JSON response to client
+        response.setContentType("application/json");
+        response.getWriter().println("{ \"results\": [\"Result 1\", \"Result 2\", \"Result 3\"] }");
+    }
 }
