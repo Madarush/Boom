@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to QuickNook</title>
-    <!-- CSS styles -->
+    <title>QuickNook</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <script async src="https://cse.google.com/cse.js?cx=YOUR_CSE_ID"></script>
 </head>
 <body>
     <header>
-        <h1>Welcome to QuickNook</h1>
+        <h1 id="site-title">QuickNook</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -19,13 +21,19 @@
         </nav>
     </header>
     <main>
-        <h2>Discover Your Favorite Games</h2>
-        <!-- Add content here -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="search()">Search</button>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Categories</button>
+            <div class="dropdown-content">
+                <gcse:search></gcse:search>
+            </div>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 QuickNook</p>
     </footer>
-    <!-- JavaScript -->
-    <script src="script.js"></script>
 </body>
 </html>
