@@ -1,18 +1,10 @@
-document.getElementById('categoryForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    // Get selected categories
-    var selectedCategories = [];
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-    checkboxes.forEach(function(checkbox) {
-        selectedCategories.push(checkbox.value);
-    });
-    
-    if (selectedCategories.length > 0) {
-        // Perform the search based on selected categories
-        var searchQuery = selectedCategories.join('+');
-        var searchUrl = 'https://www.googleapis.com/customsearch/v1?q=' + encodeURIComponent(searchQuery) + '&cx=YOUR_CSE_ID&key=YOUR_API_KEY';
-
+function search() {
+    var searchTerm = document.getElementById('searchInput').value;
+    if (searchTerm.trim() !== '') {
+        var apiKey = 'AIzaSyCtsWWwmH3TW_nNyuWHwoNaEUL6lTfoGvc';
+        var cseId = '5017b877e073141e6';
+        var searchUrl = 'https://www.googleapis.com/customsearch/v1?q=' + encodeURIComponent(searchTerm) + '&cx=' + cseId + '&key=' + apiKey;
+        
         fetch(searchUrl)
             .then(response => response.json())
             .then(data => {
@@ -22,9 +14,9 @@ document.getElementById('categoryForm').addEventListener('submit', function(even
                 console.error('Error fetching search results:', error);
             });
     } else {
-        alert('Please select at least one category.');
+        alert('Please enter a search term.');
     }
-});
+}
 
 function displaySearchResults(results) {
     var resultsList = document.getElementById('resultsList');
