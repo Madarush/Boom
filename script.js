@@ -5,8 +5,8 @@ function searchGames() {
     var search = category === 'all' ? query : query + ' ' + category;
 
     // Replace 'YOUR_API_KEY' and 'YOUR_CX' with your actual Google CSE API key and Custom Search Engine ID
-    var apiKey = 'YOUR_API_KEY';
-    var cx = 'YOUR_CX';
+    var apiKey = 'AIzaSyCtsWWwmH3TW_nNyuWHwoNaEUL6lTfoGvc';
+    var cx = '5017b877e073141e6';
     var url = 'https://www.googleapis.com/customsearch/v1?key=' + apiKey + '&cx=' + cx + '&q=' + encodeURIComponent(search);
 
     // Clear previous search results
