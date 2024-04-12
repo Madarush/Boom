@@ -19,40 +19,39 @@ header {
 }
 
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 100px);
+    padding: 20px;
+    text-align: center;
 }
 
-#g-signin2 {
+.search-container {
     margin-bottom: 20px;
 }
 
-input[type="text"], select {
+#searchBar, #categoryDropdown {
     padding: 10px;
     font-size: 16px;
     margin-right: 10px;
 }
 
 #searchResults {
-    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
 }
 
 .game {
-    margin-bottom: 10px;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .game img {
     width: 100px;
     height: 100px;
-    margin-right: 10px;
     border-radius: 5px;
-}
-
-.game .details {
-    display: inline-block;
-    vertical-align: top;
+    margin-bottom: 10px;
 }
 
 .game .title {
