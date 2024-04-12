@@ -11,12 +11,7 @@
         <h1 id="title">QuickNook</h1>
     </header>
     <main>
-        <div id="login">
-            <h2>Login with Gmail</h2>
-            <!-- Google Sign-In Button -->
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        </div>
-        <div id="home" style="display: none;">
+        <div class="search-container">
             <input type="text" id="searchBar" placeholder="Search for games...">
             <select id="categoryDropdown">
                 <option value="all">All</option>
@@ -24,10 +19,9 @@
                 <option value="happy">Happy</option>
                 <option value="rage">Rage</option>
             </select>
-            <div id="searchResults"></div>
         </div>
+        <div id="searchResults"></div>
     </main>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="script.js"></script>
 </body>
 </html>
