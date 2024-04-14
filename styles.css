@@ -70,7 +70,7 @@ header {
     height: auto;
 }
 
-.dark-mode {
+.dark-mode body {
     background-color: #333;
     color: #fff;
 }
