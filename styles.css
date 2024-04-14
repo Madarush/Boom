@@ -37,6 +37,7 @@ footer {
 .dropdown {
     position: relative;
     display: inline-block;
+    margin-right: 20px; /* Add margin to the right */
 }
 
 .dropdown-content {
@@ -46,7 +47,7 @@ footer {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    top: 100%; /* Dropdown menu below button */
+    top: 40px; /* Adjust this value as needed */
     right: 0; /* Right-aligned */
 }
 
@@ -127,4 +128,51 @@ body.dark-mode {
 
 .dark-mode button:hover {
     background-color: #666; /* Darker hover effect for button */
+}
+
+/* Center the search bar */
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-bar {
+    margin-bottom: 20px; /* Add margin at the bottom */
+}
+
+/* Additional styling for the content */
+.content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
 }
