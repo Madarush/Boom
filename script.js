@@ -33,6 +33,7 @@ function displaySearchResults(results) {
                 var image = document.createElement('img');
                 image.src = result.pagemap.cse_image[0].src;
                 image.alt = result.title;
+                image.style.maxWidth = '200px'; // Resize image
                 resultDiv.appendChild(image);
             }
             
