@@ -1,7 +1,3 @@
-// Google CSE Configuration
-var searchEngineID = '5017b877e073141e6'; // Your Search Engine ID
-var apiKey = 'AIzaSyCtsWWwmH3TW_nNyuWHwoNaEUL6lTfoGvc'; // Your API key
-
 // Function to perform search using Google CSE
 function performSearch(query) {
     var xhr = new XMLHttpRequest();
@@ -54,4 +50,15 @@ document.getElementById('searchBtn').addEventListener('click', function() {
     if (query !== '') {
         performSearch(query);
     }
+});
+
+// Function to toggle between dark and light mode
+function toggleDarkMode() {
+    var body = document.body;
+    body.classList.toggle("dark-mode");
+}
+
+// Event listener for dark mode toggle
+document.getElementById('toggleMode').addEventListener('click', function() {
+    toggleDarkMode();
 });
