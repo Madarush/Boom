@@ -1,69 +1,92 @@
-nav ul {
-    list-style-type: none;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
     margin: 0;
     padding: 0;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 20px;
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav ul li.active a {
-    color: #4CAF50; /* Change color of active tab */
-    font-weight: bold; /* Add bold font for active tab */
+.title {
+    margin: 0;
+}
+
+.settings {
+    display: flex;
+    align-items: center;
 }
 
 .search-container {
+    margin-top: 20px;
     text-align: center;
-    margin-top: 50px;
 }
 
-.search-container input[type=text] {
-    padding: 10px;
-    width: 50%;
+#searchInput {
+    padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
+    border-radius: 4px;
+    margin-right: 5px;
 }
 
-.search-container button {
-    padding: 10px 20px;
+#searchBtn {
+    padding: 8px 20px;
+    border: none;
     background-color: #4CAF50;
     color: white;
-    border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
 }
 
-.search-container button:hover {
-    background-color: #45a049;
-}
-
-.results-container {
-    margin-top: 50px;
+#searchResults {
+    margin-top: 20px;
 }
 
 .result {
-    margin-bottom: 20px;
     border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.result h3 {
-    margin-top: 0;
-}
-
-.result p {
+    border-radius: 4px;
+    padding: 10px;
     margin-bottom: 10px;
 }
 
-.result img {
+.result a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.result a:hover {
+    text-decoration: underline;
+}
+
+.search-result-image {
     max-width: 100%;
     height: auto;
-    display: block;
-    margin: 0 auto;
+}
+
+.dark-mode body {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode header {
+    background-color: #444;
+}
+
+.dark-mode .result {
+    border-color: #666;
+}
+
+.dark-mode .result a {
+    color: #9cf;
+}
+
+.dark-mode .result a:hover {
+    color: #aff;
 }
