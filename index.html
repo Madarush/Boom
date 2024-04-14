@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickNook</title>
+    <title>QuickNook - Secure Game Search</title>
     <link rel="stylesheet" href="styles.css">
+    <script async src="https://cse.google.com/cse.js?cx=YOUR_SEARCH_ENGINE_ID"></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <h1 id="title">QuickNook</h1>
+        <h1 id="title">Quick<span class="neon">Nook</span></h1>
+        <!-- Replace this div with the code provided by Google CSE -->
+        <div class="gcse-searchbox"></div>
     </header>
     <main>
-        <div class="search-container">
-            <input type="text" id="searchBar" placeholder="Search for games...">
-            <select id="categoryDropdown">
-                <option value="all">All</option>
-                <option value="horror">Horror</option>
-                <option value="happy">Happy</option>
-                <option value="rage">Rage</option>
-            </select>
+        <div id="searchResults">
+            <!-- Search results will be displayed here -->
         </div>
-        <div id="searchResults"></div>
     </main>
-    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2024 QuickNook. All rights reserved.</p>
+    </footer>
 </body>
 </html>
