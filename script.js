@@ -48,6 +48,7 @@ function displaySearchResults(results) {
                 var image = document.createElement('img');
                 image.src = item.pagemap.cse_image[0].src;
                 image.alt = "Image for " + item.title; // Alt text for accessibility
+                image.classList.add('search-result-image'); // Add a class for styling
                 resultDiv.appendChild(image);
             } else {
                 var noImage = document.createElement('p');
