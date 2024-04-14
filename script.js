@@ -43,6 +43,12 @@ function displaySearchResults(results) {
             snippet.textContent = item.snippet;
             resultDiv.appendChild(snippet);
 
+            if (item.pagemap && item.pagemap.cse_image && item.pagemap.cse_image.length > 0) {
+                var image = document.createElement('img');
+                image.src = item.pagemap.cse_image[0].src;
+                resultDiv.appendChild(image);
+            }
+
             searchResultsDiv.appendChild(resultDiv);
         });
     } else {
