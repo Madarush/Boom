@@ -2,7 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
+    background-color: #222; /* Dark background */
+    color: #ddd; /* Light text */
 }
 
 header {
@@ -13,7 +14,7 @@ header {
 }
 
 .neon {
-    color: #33ff33; /* neon green */
+    color: #33ff33; /* Neon green */
 }
 
 main {
@@ -29,3 +30,15 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+/* Dark mode specific styles */
+input[type="text"],
+button {
+    background-color: #444; /* Darker input background */
+    color: #ddd; /* Light text */
+}
+
+button:hover {
+    background-color: #666; /* Darker hover effect for button */
+}
+
