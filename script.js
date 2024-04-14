@@ -43,10 +43,16 @@ function displaySearchResults(results) {
             snippet.textContent = item.snippet;
             resultDiv.appendChild(snippet);
 
+            // Check if image is available
             if (item.pagemap && item.pagemap.cse_image && item.pagemap.cse_image.length > 0) {
                 var image = document.createElement('img');
                 image.src = item.pagemap.cse_image[0].src;
+                image.alt = "Image for " + item.title; // Alt text for accessibility
                 resultDiv.appendChild(image);
+            } else {
+                var noImage = document.createElement('p');
+                noImage.textContent = "No image available";
+                resultDiv.appendChild(noImage);
             }
 
             searchResultsDiv.appendChild(resultDiv);
