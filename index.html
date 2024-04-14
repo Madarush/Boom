@@ -3,38 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickNook - Secure Game Search</title>
+    <title>QuickNook</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <h1 id="title">Quick<span class="neon">Nook</span></h1>
-        <!-- Dropdown for settings -->
-        <div class="dropdown">
-            <button class="dropbtn">Settings</button>
-            <div class="dropdown-content">
-                <label class="switch">
-                    <input type="checkbox" id="darkModeToggle">
-                    <span class="slider"></span>
-                </label>
-            </div>
+        <h1 class="title">QuickNook</h1>
+        <div class="settings">
+            <label for="darkModeToggle">Dark Mode</label>
+            <input type="checkbox" id="darkModeToggle">
         </div>
     </header>
     <main>
-        <div class="center">
-            <!-- Physical search input field -->
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Search for games...">
-                <button id="searchBtn">Search</button>
-            </div>
-            <div id="searchResults">
-                <!-- Search results will be displayed here -->
-            </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Enter your search query">
+            <button id="searchBtn">Search</button>
         </div>
+        <div id="searchResults"></div>
     </main>
-    <footer>
-        <p>&copy; 2024 QuickNook. All rights reserved.</p>
-    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
