@@ -1,46 +1,48 @@
-// Google CSE Configuration
-var searchEngineID = '5017b877e073141e6'; // Your Search Engine ID
-var apiKey = 'AIzaSyCtsWWwmH3TW_nNyuWHwoNaEUL6lTfoGvc'; // Your API key
-
-// Function to perform search using Google CSE
+// Function to perform a search using Google CSE
 function performSearch(query) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://www.googleapis.com/customsearch/v1?key=' + apiKey + '&cx=' + searchEngineID + '&q=' + query);
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            var data = JSON.parse(xhr.responseText);
-            displaySearchResults(data.items);
-        } else {
-            console.error('Failed to fetch search results. Error code:', xhr.status);
-        }
-    };
-    xhr.send();
+    var cx = '5017b877e073141e6'; // Replace 'YOUR_SEARCH_ENGINE_ID' with your actual CSE ID
+    var apiKey = 'AIzaSyCtsWWwmH3TW_nNyuWHwoNaEUL6lTfoGvc'; // Replace 'YOUR_API_KEY' with your actual API key
+
+    // Make sure the query is not empty
+    if (query.trim() !== '') {
+        // Construct the search URL
+        var url = 'https://www.googleapis.com/customsearch/v1?q=' + query + '&cx=' + cx + '&key=' + apiKey;
+
+        // Fetch search results from the API
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // Display the search results
+                displaySearchResults(data.items);
+            })
+            .catch(error => {
+                console.error('Error fetching search results:', error);
+            });
+    }
 }
 
-// Function to display search results on the page
+// Function to display search results on the webpage
 function displaySearchResults(results) {
     var searchResultsDiv = document.getElementById('searchResults');
+
+    // Clear previous search results
     searchResultsDiv.innerHTML = '';
 
     if (results && results.length > 0) {
-        results.forEach(function(result) {
+        results.forEach(item => {
             var resultDiv = document.createElement('div');
-            var title = document.createElement('h2');
-            title.innerHTML = '<a href="' + result.link + '">' + result.title + '</a>';
-            
-            // Display image if available
-            if (result.pagemap && result.pagemap.cse_image && result.pagemap.cse_image.length > 0) {
-                var image = document.createElement('img');
-                image.src = result.pagemap.cse_image[0].src;
-                image.alt = result.title;
-                image.style.maxWidth = '200px'; // Resize image
-                resultDiv.appendChild(image);
-            }
-            
-            var snippet = document.createElement('p');
-            snippet.textContent = result.snippet;
+            resultDiv.classList.add('result');
+
+            var title = document.createElement('a');
+            title.href = item.link;
+            title.textContent = item.title;
+            title.target = '_blank';
             resultDiv.appendChild(title);
+
+            var snippet = document.createElement('p');
+            snippet.textContent = item.snippet;
             resultDiv.appendChild(snippet);
+
             searchResultsDiv.appendChild(resultDiv);
         });
     } else {
