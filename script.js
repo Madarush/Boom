@@ -12,11 +12,6 @@ function handleDarkModeToggle() {
     });
 }
 
-// Function to handle navigation between pages
-function navigateTo(page) {
-    window.location.href = page + ".html";
-}
-
 // Function to handle search button click
 function searchGames() {
     var searchInput = document.getElementById("searchInput").value;
