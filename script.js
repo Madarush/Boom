@@ -1,58 +1,17 @@
-// Function to perform search
-function searchGames() {
-    var query = document.getElementById('searchBar').value;
-    var category = document.getElementById('categoryDropdown').value;
-    var search = category === 'all' ? query : query + ' ' + category;
-
-    // Replace 'YOUR_API_KEY' and 'YOUR_CX' with your actual Google CSE API key and Custom Search Engine ID
-    var apiKey = 'AIzaSyCtsWWwmH3TW_nNyuWHwoNaEUL6lTfoGvc';
-    var cx = '5017b877e073141e6';
-    var url = 'https://www.googleapis.com/customsearch/v1?key=' + apiKey + '&cx=' + cx + '&q=' + encodeURIComponent(search);
-
-    // Clear previous search results
-    document.getElementById('searchResults').innerHTML = '';
-
-    // Fetch search results from Google Custom Search JSON API
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            if (data.items) {
-                data.items.forEach(item => {
-                    var title = item.title;
-                    var link = item.link;
-                    var snippet = item.snippet;
-
-                    var gameElement = document.createElement('div');
-                    gameElement.classList.add('game');
-
-                    var titleElement = document.createElement('div');
-                    titleElement.classList.add('title');
-                    titleElement.textContent = title;
-
-                    var snippetElement = document.createElement('div');
-                    snippetElement.classList.add('snippet');
-                    snippetElement.textContent = snippet;
-
-                    var linkElement = document.createElement('a');
-                    linkElement.href = link;
-                    linkElement.target = '_blank';
-                    linkElement.textContent = 'View Game';
-
-                    gameElement.appendChild(titleElement);
-                    gameElement.appendChild(snippetElement);
-                    gameElement.appendChild(linkElement);
-
-                    document.getElementById('searchResults').appendChild(gameElement);
-                });
-            } else {
-                document.getElementById('searchResults').textContent = 'No results found.';
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching search results:', error);
-            document.getElementById('searchResults').textContent = 'An error occurred while fetching search results.';
-        });
+// This function will be called when the search results are ready
+function onGoogleSearchReady() {
+    // Access the search results data and display it on your page
+    var searchResults = google.search.cse.element.getElement('searchResults');
+    if (searchResults) {
+        var resultsHTML = '';
+        var items = searchResults.results;
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            resultsHTML += '<div>';
+            resultsHTML += '<h2><a href="' + item.url + '">' + item.title + '</a></h2>';
+            resultsHTML += '<p>' + item.snippet + '</p>';
+            resultsHTML += '</div>';
+        }
+        document.getElementById('searchResults').innerHTML = resultsHTML;
+    }
 }
-
-// Execute search when user clicks search button
-document.getElementById('searchButton').addEventListener('click', searchGames);
