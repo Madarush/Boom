@@ -8,19 +8,24 @@
 </head>
 <body>
     <header>
-        <h1 class="title">QuickNook</h1>
-        <div class="settings">
-            <label for="darkModeToggle">Dark Mode</label>
-            <input type="checkbox" id="darkModeToggle">
-        </div>
+        <h1>QuickNook</h1>
+        <nav>
+            <ul>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
     </header>
-    <main>
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Enter your search query">
-            <button id="searchBtn">Search</button>
-        </div>
-        <div id="searchResults"></div>
-    </main>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for games...">
+        <button onclick="searchGames()">Search</button>
+    </div>
+    <div class="results-container" id="resultsContainer">
+        <!-- Results will be displayed here -->
+    </div>
+    <footer>
+        <p>&copy; 2024 QuickNook. All rights reserved.</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
