@@ -1,3 +1,22 @@
+// Function to toggle dark mode
+function toggleDarkMode() {
+    var body = document.body;
+    body.classList.toggle("dark-mode");
+}
+
+// Function to handle dark mode toggle button click
+function handleDarkModeToggle() {
+    var darkModeToggle = document.getElementById("darkModeToggle");
+    darkModeToggle.addEventListener("click", function() {
+        toggleDarkMode();
+    });
+}
+
+// Function to handle navigation between pages
+function navigateTo(page) {
+    window.location.href = page + ".html";
+}
+
 // Function to handle search button click
 function searchGames() {
     var searchInput = document.getElementById("searchInput").value;
@@ -41,3 +60,8 @@ function searchGames() {
             console.error("Error fetching data:", error);
         });
 }
+
+// Call the handleDarkModeToggle function when the page is loaded
+window.onload = function() {
+    handleDarkModeToggle();
+};
