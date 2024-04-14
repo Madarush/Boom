@@ -27,6 +27,15 @@ function displaySearchResults(results) {
             var resultDiv = document.createElement('div');
             var title = document.createElement('h2');
             title.innerHTML = '<a href="' + result.link + '">' + result.title + '</a>';
+            
+            // Display image if available
+            if (result.pagemap && result.pagemap.cse_image && result.pagemap.cse_image.length > 0) {
+                var image = document.createElement('img');
+                image.src = result.pagemap.cse_image[0].src;
+                image.alt = result.title;
+                resultDiv.appendChild(image);
+            }
+            
             var snippet = document.createElement('p');
             snippet.textContent = result.snippet;
             resultDiv.appendChild(title);
